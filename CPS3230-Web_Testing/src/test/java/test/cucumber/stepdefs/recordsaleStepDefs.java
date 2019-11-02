@@ -34,43 +34,41 @@ public class recordsaleStepDefs {
         rpo.get();
     }
 
-    @When("I log in using valid credentials {string} and {string}")
-    public void i_log_in_using_valid_credentials(String email, String password) {
-        rpo.login(email, password);
+    @When("I log in using valid credentials")
+    public void i_log_in_using_valid_credentials() {
+        rpo.login(recordsalePageObject.email, recordsalePageObject.goodPassword);
     }
 
-    @Then("I should be logged in {string}")
-    public void i_should_be_logged_in(String name) {
-        assertTrue(rpo.getLoginSuccessText(name));
-        sleep(2);
+    @Then("I should be logged in")
+    public void i_should_be_logged_in() {
+        assertTrue(rpo.getLoginSuccessText());
     }
 
-    @When("I log in using invalid credentials {string} and {string}")
-    public void i_log_in_using_invalid_credentials(String email, String badPassword) {
+    @When("I log in using invalid credentials")
+    public void i_log_in_using_invalid_credentials() {
         // Write code here that turns the phrase above into concrete actions
-        rpo.login(email, badPassword);
+        rpo.login(recordsalePageObject.email, recordsalePageObject.badPassword);
+    }
+
+    @Then("I should not be logged in")
+    public void i_should_not_be_logged_in() {
+        sleep(2);
+        rpo.getLoginFailedText();
         sleep(2);
     }
 
-    @Then("I should not be logged in {string}")
-    public void i_should_not_be_logged_in(String failed) {
-        sleep(2);
-        rpo.getLoginFailedText(failed);
-        sleep(2);
-    }
-
-    @Given("I am a logged in user on the website {string} and {string} and {string}")
-    public void i_am_a_logged_in_user_on_the_website(String email, String password, String name) {
+    @Given("I am a logged in user on the website")
+    public void i_am_a_logged_in_user_on_the_website() {
         rpo.get();
-        rpo.login(email, password);
-        sleep(5);
-        assertTrue(rpo.getLoginSuccessText(name));
+        rpo.login(recordsalePageObject.email, recordsalePageObject.goodPassword);
+        sleep(2);
+        assertTrue(rpo.getLoginSuccessText());
         sleep(2);
     }
 
-    @When("I search for a product {string}")
-    public void i_search_for_a_product(String searchTerm) {
-        rpo.search(searchTerm);
+    @When("I search for a product")
+    public void i_search_for_a_product() {
+        rpo.searchOne();
         sleep(2);
     }
 
@@ -87,12 +85,13 @@ public class recordsaleStepDefs {
 
     @Given("my shopping cart is empty")
     public void my_shopping_cart_is_empty() {
+        rpo.clearCart();
         rpo.cartEmpty();
     }
 
-    @When("I view the details of a product {string}")
-    public void i_view_the_details_of_a_product(String searchTerm) {
-        rpo.search(searchTerm);
+    @When("I view the details of a product")
+    public void i_view_the_details_of_a_product() {
+        rpo.searchOne();
         sleep(2);
         rpo.clickFirstImage();
         sleep(2);
@@ -106,9 +105,9 @@ public class recordsaleStepDefs {
     }
 
     @Then("my shopping cart should contain {int} item")
-    public void my_shopping_cart_should_contain_item(int int1) {
+    public void my_shopping_cart_should_contain_item(int num) {
         sleep(3);
-        assertEquals(rpo.countItemsInCart(), int1);
+        assertEquals(rpo.countItemsInCart(), num);
     }
 
     @When("I add <num-products> products to my shopping cart")
@@ -124,15 +123,17 @@ public class recordsaleStepDefs {
     }
 
     @Given("my shopping cart has {int} products")
-    public void my_shopping_cart_has_products(int int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    public void my_shopping_cart_has_products(int num) {
+        rpo.searchAndAddMultiple(num);
+        assertEquals(rpo.countItemsInCart(), num);
     }
 
     @When("I remove the first product in my cart")
     public void i_remove_the_first_product_in_my_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        rpo.goToCart();
+        sleep(2);
+        rpo.removeFirstProductInCart();
+        sleep(2);
     }
 
     public void sleep(int seconds) {
