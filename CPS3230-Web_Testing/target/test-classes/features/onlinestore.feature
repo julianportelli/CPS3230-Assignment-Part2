@@ -15,13 +15,13 @@ Feature: Online Store Functionality
   Scenario: Product Search
     Given I am a logged in user on the website "cps3230test@gmail.com" and "Qwerty123" and "Hi, CPS3230"
     When I search for a product "Sabaton"
-    And I select the first product in the list "release-image"
+    And I select the first product in the list
     Then I should see the product details
 
   Scenario: Add product to cart
     Given I am a logged in user on the website "cps3230test@gmail.com" and "Qwerty123" and "Hi, CPS3230"
     And my shopping cart is empty
-    When I view the details of a product
+    When I view the details of a product "Sabaton"
     And I choose to buy the product
     Then my shopping cart should contain 1 item
 

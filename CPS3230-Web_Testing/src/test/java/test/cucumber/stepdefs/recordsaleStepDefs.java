@@ -74,9 +74,9 @@ public class recordsaleStepDefs {
         sleep(2);
     }
 
-    @When("I select the first product in the list {string}")
-    public void i_select_the_first_product_in_the_list(String className) {
-        rpo.clickFirstImage(className);
+    @When("I select the first product in the list")
+    public void i_select_the_first_product_in_the_list() {
+        rpo.clickFirstImage();
     }
 
     @Then("I should see the product details")
@@ -87,26 +87,28 @@ public class recordsaleStepDefs {
 
     @Given("my shopping cart is empty")
     public void my_shopping_cart_is_empty() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        rpo.cartEmpty();
     }
 
-    @When("I view the details of a product")
-    public void i_view_the_details_of_a_product() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @When("I view the details of a product {string}")
+    public void i_view_the_details_of_a_product(String searchTerm) {
+        rpo.search(searchTerm);
+        sleep(2);
+        rpo.clickFirstImage();
+        sleep(2);
+        rpo.productDetailsExist();
     }
 
     @When("I choose to buy the product")
     public void i_choose_to_buy_the_product() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        sleep(2);
+        rpo.addToCart();
     }
 
     @Then("my shopping cart should contain {int} item")
-    public void my_shopping_cart_should_contain_item(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    public void my_shopping_cart_should_contain_item(int int1) {
+        sleep(3);
+        assertEquals(rpo.countItemsInCart(), int1);
     }
 
     @When("I add <num-products> products to my shopping cart")
@@ -122,7 +124,7 @@ public class recordsaleStepDefs {
     }
 
     @Given("my shopping cart has {int} products")
-    public void my_shopping_cart_has_products(Integer int1) {
+    public void my_shopping_cart_has_products(int int1) {
         // Write code here that turns the phrase above into concrete actions
         throw new cucumber.api.PendingException();
     }

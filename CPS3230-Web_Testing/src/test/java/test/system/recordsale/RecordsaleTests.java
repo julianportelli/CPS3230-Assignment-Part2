@@ -20,7 +20,4 @@ public class RecordsaleTests {
         browser.quit();
     }
 
-    @Test
-    public void testSimpleSearch() {
-    }
 }

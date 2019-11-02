@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertNull;
 
 public class recordsalePageObject {
 
@@ -44,12 +45,25 @@ public class recordsalePageObject {
         browser.findElement(By.className("js-search")).submit();
     }
 
-    public void clickFirstImage(String string){
+    public void clickFirstImage(){
         browser.findElement(By.className("release-image")).click();
     }
 
     public void productDetailsExist(){
         assertNotNull(browser.findElement(By.className("recordPane")));
+    }
+
+    public void cartEmpty(){
+        assertNull(browser.findElement(By.className("cart-icon")).getAttribute("data-content"));
+    }
+
+    public void addToCart(){
+        browser.findElement(By.className("l-paneContent-buy")).findElement(By.className("button--fill")).click();
+    }
+
+    public int countItemsInCart(){
+//        System.out.println(browser.findElement(By.className("cart-icon")).getAttribute("data-content"));
+        return Integer.parseInt(browser.findElement(By.className("cart-icon")).getAttribute("data-content"));
     }
 
     public void sleep(int seconds) {
