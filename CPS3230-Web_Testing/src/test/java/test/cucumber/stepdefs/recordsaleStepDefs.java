@@ -110,16 +110,15 @@ public class recordsaleStepDefs {
         assertEquals(rpo.countItemsInCart(), num);
     }
 
-    @When("I add <num-products> products to my shopping cart")
-    public void i_add_num_products_products_to_my_shopping_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @When("I add {int} products to my shopping cart")
+    public void i_add_num_products_products_to_my_shopping_cart(int int1) {
+        rpo.searchAndAddMultiple(int1);
     }
 
-    @Then("my shopping cart should contain <num-products> items")
-    public void my_shopping_cart_should_contain_num_products_items() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Then("my shopping cart should contain {int} items")
+    public void my_shopping_cart_should_contain_num_products_items(int int1) {
+        sleep(3);
+        assertEquals(rpo.countItemsInCart(), int1);
     }
 
     @Given("my shopping cart has {int} products")

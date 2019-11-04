@@ -25,11 +25,17 @@ Feature: Online Store Functionality
     And I choose to buy the product
     Then my shopping cart should contain 1 item
 
-  Scenario: Add multiple products to cart
+  Scenario Outline: Add multiple products to cart
     Given I am a logged in user on the website
     And my shopping cart is empty
     When I add <num-products> products to my shopping cart
     Then my shopping cart should contain <num-products> items
+
+    Examples:
+    |num-products|
+    |3           |
+    |5           |
+    |10          |
     #Values for num-products: 3,5,10
 
   Scenario: Removing a product from cart

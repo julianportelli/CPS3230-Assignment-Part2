@@ -26,6 +26,7 @@ public class recordsalePageObject {
 
     public recordsalePageObject(WebDriver driver) {
         this.browser = driver;
+        browser.manage().window().maximize();
     }
 
     public void get() {
@@ -78,7 +79,7 @@ public class recordsalePageObject {
     }
 
     public void addToCart(){
-        browser.findElement(By.className("l-paneContent-buy")).findElement(By.className("button--fill")).click();
+        browser.findElement(By.className("l-paneContent-buy")).findElement(By.className("button--fill")).submit();
     }
 
     public int countItemsInCart(){
@@ -98,23 +99,24 @@ public class recordsalePageObject {
 
     public void clearCart(){
         if(countItemsInCart() >= 0){
-            int x = countItemsInCart();
             goToCart();
-            while(x > 0){
+            while(countItemsInCart() > 0){
                 removeFirstProductInCart();
                 sleep(2);
-                x--;
             }
+            sleep(2);
         }
     }
 
     public void searchAndAddMultiple(int n){
         for(int i=0; i<n; i++){
+            sleep(2);
             searchById(i);
             sleep(2);
             clickFirstImage();
             sleep(2);
             addToCart();
+            sleep(2);
         }
     }
 
