@@ -98,8 +98,16 @@ public class recordsalePageObject {
     }
 
     public void clearCart(){
+//        if(countItemsInCart() >= 0){
+//            goToCart();
+//            while(countItemsInCart() > 0){
+//                removeFirstProductInCart();
+//                sleep(2);
+//            }
+//            sleep(2);
+//        }
+        goToCart();
         if(countItemsInCart() >= 0){
-            goToCart();
             while(countItemsInCart() > 0){
                 removeFirstProductInCart();
                 sleep(2);

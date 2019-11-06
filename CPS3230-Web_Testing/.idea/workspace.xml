@@ -5,10 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/onlinestore.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/onlinestore.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber java.Scenario: Valid Login">
+  <component name="RunManager" selected="Cucumber java.Scenario: Removing a product from cart">
     <configuration name="Feature: onlinestore" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="4" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
@@ -103,6 +99,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scenario: Removing a product from cart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="4" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
+      <option name="GLUE" value="test.cucumber.stepdefs" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="CPS3230-Web_Testing" />
+      <option name="NAME_FILTER" value="^Removing a product from cart$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --name &quot;^Removing a product from cart$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Removing a product from cart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: Valid Login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="4" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
@@ -122,28 +137,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CucumberRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CPS3230-Web_Testing" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CucumberRunner" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber java.Scenario: Removing a product from cart" />
         <item itemvalue="Cucumber java.Scenario: Valid Login" />
         <item itemvalue="Cucumber java.Scenario: Add multiple products to cart" />
         <item itemvalue="Cucumber java.Scenario: Add product to cart" />
         <item itemvalue="Cucumber java.Feature: onlinestore" />
-        <item itemvalue="JUnit.CucumberRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +161,8 @@
       <workItem from="1572608034082" duration="15626000" />
       <workItem from="1572688339349" duration="15206000" />
       <workItem from="1572853391097" duration="388000" />
-      <workItem from="1572853843579" duration="1611000" />
+      <workItem from="1572853843579" duration="2262000" />
+      <workItem from="1573036878488" duration="2281000" />
     </task>
     <servers />
   </component>
@@ -183,6 +184,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Feature__onlinestore.ic" NAME="Feature: onlinestore Coverage Results" MODIFIED="1572716492439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>cucumber.api.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Scenario__Removing_a_product_from_cart.ic" NAME="Scenario: Removing a product from cart Coverage Results" MODIFIED="1573040494261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cucumber.api.cli.*</FILTER>
     </SUITE>
   </component>

@@ -123,6 +123,7 @@ public class recordsaleStepDefs {
 
     @Given("my shopping cart has {int} products")
     public void my_shopping_cart_has_products(int num) {
+        rpo.clearCart();
         rpo.searchAndAddMultiple(num);
         assertEquals(rpo.countItemsInCart(), num);
     }
