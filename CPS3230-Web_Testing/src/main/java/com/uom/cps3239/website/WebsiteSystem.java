@@ -1,8 +1,14 @@
 package com.uom.cps3239.website;
 
 public class WebsiteSystem {
-    private boolean inSite = true, loggedIn = false, loggedOut = false,
-            inCart = false, inProductSearch = false, inProductPage = false , inCheckout = false;
+
+    private boolean inSite = true;
+    private boolean loggedIn = false;
+    private boolean loggedOut = true;
+    private boolean inCart = false;
+    private boolean inProductSearch = false;
+    private boolean inProductPage = false;
+    private boolean inCheckout = false;
 
     public boolean isInSite() {
         return inSite;
@@ -32,28 +38,25 @@ public class WebsiteSystem {
         return inCheckout;
     }
 
-    void loggingInGoodCredentials(){
+    public void visitingSite(){
+        if(inSite = false){
+            inSite = true;
+        }
+    }
+
+    public void loggingIn(){
         if(inSite && !loggedIn && loggedOut) {
             loggedIn = true;
-            loggedOut = false;
         }
     }
 
-    void loggingInBadCredentials(){
-        if(inSite && !loggedIn && loggedOut) {
-            loggedIn = false;
-            loggedOut = true;
-        }
-    }
-
-    void loggingOut(){
-        if(inSite && !loggedOut && loggedIn){
-            loggedOut = true;
+    public void loggingOut(){
+        if(inSite && loggedIn && !loggedOut){
             loggedIn = false;
         }
     }
 
-    void searchingProducts(){
+    public void searchingProducts(){
         if(inSite && !inProductSearch){
             inProductSearch = true;
             inProductPage = false;
@@ -62,32 +65,32 @@ public class WebsiteSystem {
         }
     }
 
-    void viewingProduct(){
+    public void viewingProduct(){
         if(inSite && inProductSearch && !inCart && !inProductPage && !inCheckout){
             inProductSearch = false;
             inProductPage = true;
         }
     }
 
-    void addingProductToCart(){
+    public void addingProductToCart(){
         if(inSite && inProductPage && !inCart && !inProductSearch && !inCheckout){
             inProductPage = true;
         }
     }
 
-    void viewingCart(){
+    public void viewingCart(){
         if(inSite && !inCart){
             inCart = true;
         }
     }
 
-    void removingProductFromCart(){
+    public void removingProductFromCart(){
         if(inSite && inCart && !inProductSearch && !inProductPage && !inCheckout){
             inCart = true;
         }
     }
 
-    void checkingOut(){
+    public void checkingOut(){
         if(inSite && inCart && !inProductSearch && !inProductPage && !inCheckout){
             inCheckout = true;
             inCart = false;
