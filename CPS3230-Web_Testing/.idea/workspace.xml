@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc6dc3-a3ec-48a2-ad1f-3580e0adb92d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +165,7 @@
       <workItem from="1572853843579" duration="2262000" />
       <workItem from="1573036878488" duration="2281000" />
       <workItem from="1573899351999" duration="11136000" />
-      <workItem from="1573918593863" duration="6209000" />
+      <workItem from="1573918593863" duration="13776000" />
     </task>
     <servers />
   </component>
@@ -191,6 +191,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Scenario__Removing_a_product_from_cart.ic" NAME="Scenario: Removing a product from cart Coverage Results" MODIFIED="1573040494261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cucumber.api.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$WebsiteSystemModelTest_WebsiteSystemModelRunner.ic" NAME="WebsiteSystemModelTest.WebsiteSystemModelRunner Coverage Results" MODIFIED="1574025519825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uom.cps3230.website.*</FILTER>
     </SUITE>
   </component>
 </project>

@@ -22,6 +22,8 @@ import nz.ac.waikato.modeljunit.Tester;
 import nz.ac.waikato.modeljunit.coverage.ActionCoverage;
 import nz.ac.waikato.modeljunit.coverage.StateCoverage;
 import nz.ac.waikato.modeljunit.coverage.TransitionPairCoverage;
+import pageobjects.recordsalePageObject;
+
 import java.util.Random;
 
 public class WebsiteSystemModelTest implements FsmModel {
@@ -31,6 +33,8 @@ public class WebsiteSystemModelTest implements FsmModel {
     */
 
     WebDriver browser;
+    recordsalePageObject rpo;
+
     private WebsiteSystemStates modelState;
     private WebsiteSystem sut; //System under test
     private boolean inSite, loggedIn, loggedOut,
@@ -43,6 +47,10 @@ public class WebsiteSystemModelTest implements FsmModel {
     @Before
     public void openBrowserVisitSite(){
         System.setProperty("webdriver.chrome.driver", "C:/Users/Julian Portelli/Downloads/chromedriver_win32/chromedriver.exe");
+        browser = new ChromeDriver();
+        rpo = new recordsalePageObject(browser);
+        rpo.get();
+        modelState = WebsiteSystemStates.IN_SITE;
     }
 
     @After
@@ -50,9 +58,15 @@ public class WebsiteSystemModelTest implements FsmModel {
         browser.quit();
     }
 
+    public void sleep(int seconds) {
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (Exception e) {}
+    }
+
     public void reset(final boolean b) {
         modelState = WebsiteSystemStates.IN_SITE;
-        inSite = false;
+        inSite = true;
         loggedIn = false;
         loggedOut = true;
         inCart = false;
@@ -65,21 +79,23 @@ public class WebsiteSystemModelTest implements FsmModel {
         }
     }
 
-    public @Action void visitSite(){
-        sut.visitingSite();
-
-        inSite = true;
-        modelState = WebsiteSystemStates.IN_SITE;
-
-        assertEquals("The model's visit site in state doesn't match the SUT's state.", inSite, sut.isInSite());
-    }
+//    public @Action void visitSite(){
+//        rpo.get();
+//        sut.visitingSite();
+//
+//        inSite = true;
+//        modelState = WebsiteSystemStates.IN_SITE;
+//
+//        assertEquals("The model's visit site in state doesn't match the SUT's state.", inSite, sut.isInSite());
+//    }
 
     public boolean logInGuard(){
         return getState().equals(WebsiteSystemStates.LOGGED_OUT);
     }
     public @Action void logIn(){
         sut.loggingIn();
-
+        sleep(2);
+        rpo.login(recordsalePageObject.email, recordsalePageObject.goodPassword);
         loggedIn = true;
         loggedOut = false;
         modelState = WebsiteSystemStates.LOGGED_IN;
@@ -91,6 +107,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
     public @Action void logOut(){
+        rpo.logout();
         sut.loggingOut();
 
         loggedOut = true;
@@ -104,6 +121,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
     public @Action void search(){
+        rpo.searchOne();
         sut.searchingProducts();
 
         inProductSearch = true;
@@ -117,6 +135,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_SEARCH);
     }
     public @Action void viewProduct(){
+        rpo.clickFirstImage();
         sut.viewingProduct();
 
         inProductPage = true;
@@ -131,6 +150,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
     public @Action void addProduct(){
+        rpo.addToCart();
         sut.addingProductToCart();
 
         inProductPage = true;
@@ -145,6 +165,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
     public @Action void viewCart(){
+        rpo.goToCart();
         sut.viewingCart();
 
         inProductPage = false;
@@ -160,6 +181,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void removeProduct(){
+        rpo.removeFirstProductInCart();
         sut.removingProductFromCart();
 
         modelState = WebsiteSystemStates.IN_CART;
@@ -172,6 +194,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void checkout(){
+        rpo.checkout();
         sut.checkingOut();
 
         inCart = false;

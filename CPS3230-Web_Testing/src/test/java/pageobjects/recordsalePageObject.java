@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
@@ -15,9 +16,9 @@ import static junit.framework.TestCase.assertNull;
 
 public class recordsalePageObject {
 
-    public static String email = "cps3230test@gmail.com";
-    public static String goodPassword = "Qwerty123";
-    public static String badPassword = "123456";
+    public static final String email = "cps3230test@gmail.com";
+    public static final String goodPassword = "Qwerty123";
+    public static final String badPassword = "123456";
 
     WebDriver browser;
 
@@ -98,14 +99,6 @@ public class recordsalePageObject {
     }
 
     public void clearCart(){
-//        if(countItemsInCart() >= 0){
-//            goToCart();
-//            while(countItemsInCart() > 0){
-//                removeFirstProductInCart();
-//                sleep(2);
-//            }
-//            sleep(2);
-//        }
         goToCart();
         if(countItemsInCart() >= 0){
             while(countItemsInCart() > 0){
@@ -133,4 +126,18 @@ public class recordsalePageObject {
             Thread.sleep(seconds*1000);
         } catch (Exception e) {}
     }
+
+    public void logout(){
+        WebElement e = browser.findElement(By.xpath("/html/body/footer/div/div/section[3]/p[4]/a"));
+        if(e != null){
+            e.submit();
+        }
+    }
+
+    public void checkout(){
+        if(countItemsInCart() > 0){
+            browser.findElement(By.className("cartOverview-orderButton")).submit();
+        }
+    }
+
 }
