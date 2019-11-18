@@ -27,7 +27,6 @@ public class recordsalePageObject {
 
     public recordsalePageObject(WebDriver driver) {
         this.browser = driver;
-        browser.manage().window().maximize();
     }
 
     public void get() {

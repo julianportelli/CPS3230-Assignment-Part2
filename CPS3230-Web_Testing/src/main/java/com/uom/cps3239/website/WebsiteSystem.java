@@ -2,7 +2,7 @@ package com.uom.cps3239.website;
 
 public class WebsiteSystem {
 
-    private boolean inSite = true;
+    private boolean inSite = false;
     private boolean loggedIn = false;
     private boolean loggedOut = true;
     private boolean inCart = false;
@@ -14,32 +14,60 @@ public class WebsiteSystem {
         return inSite;
     }
 
+    public void setInSite(boolean inSite) {
+        this.inSite = inSite;
+    }
+
     public boolean isLoggedIn() {
         return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 
     public boolean isLoggedOut() {
         return loggedOut;
     }
 
+    public void setLoggedOut(boolean loggedOut) {
+        this.loggedOut = loggedOut;
+    }
+
     public boolean isInCart() {
         return inCart;
+    }
+
+    public void setInCart(boolean inCart) {
+        this.inCart = inCart;
     }
 
     public boolean isInProductSearch() {
         return inProductSearch;
     }
 
+    public void setInProductSearch(boolean inProductSearch) {
+        this.inProductSearch = inProductSearch;
+    }
+
     public boolean isInProductPage() {
         return inProductPage;
+    }
+
+    public void setInProductPage(boolean inProductPage) {
+        this.inProductPage = inProductPage;
     }
 
     public boolean isInCheckout() {
         return inCheckout;
     }
 
+    public void setInCheckout(boolean inCheckout) {
+        this.inCheckout = inCheckout;
+    }
+
     public void visitingSite(){
-        if(inSite = false){
+        if(!inSite){
             inSite = true;
         }
     }
@@ -96,5 +124,8 @@ public class WebsiteSystem {
             inCart = false;
         }
     }
+
+
+
 
 }

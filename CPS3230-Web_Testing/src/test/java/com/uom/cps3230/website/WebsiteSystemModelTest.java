@@ -44,19 +44,16 @@ public class WebsiteSystemModelTest implements FsmModel {
         return modelState;
     }
 
-    @Before
-    public void openBrowserVisitSite(){
+    public WebsiteSystemModelTest(){
         System.setProperty("webdriver.chrome.driver", "C:/Users/Julian Portelli/Downloads/chromedriver_win32/chromedriver.exe");
         browser = new ChromeDriver();
         rpo = new recordsalePageObject(browser);
-        rpo.get();
-        modelState = WebsiteSystemStates.IN_SITE;
     }
 
-    @After
-    public void quitBrowser() {
-        browser.quit();
-    }
+//    @After
+//    public void quitBrowser() {
+//        browser.quit();
+//    }
 
     public void sleep(int seconds) {
         try {
@@ -79,23 +76,29 @@ public class WebsiteSystemModelTest implements FsmModel {
         }
     }
 
-//    public @Action void visitSite(){
-//        rpo.get();
-//        sut.visitingSite();
-//
-//        inSite = true;
-//        modelState = WebsiteSystemStates.IN_SITE;
-//
-//        assertEquals("The model's visit site in state doesn't match the SUT's state.", inSite, sut.isInSite());
-//    }
+    public boolean visitSiteGuard(){
+        return getState().equals(WebsiteSystemStates.IN_SITE);
+    }
+    public @Action void visitSite(){
+        sut.visitingSite();
+        sleep(2);
+        rpo.get();
+
+        inSite = true;
+        modelState = WebsiteSystemStates.LOGGED_OUT;
+
+        assertEquals("The model's visit site in state doesn't match the SUT's state.", inSite, sut.isInSite());
+    }
 
     public boolean logInGuard(){
         return getState().equals(WebsiteSystemStates.LOGGED_OUT);
     }
     public @Action void logIn(){
         sut.loggingIn();
-        sleep(2);
+
         rpo.login(recordsalePageObject.email, recordsalePageObject.goodPassword);
+        sleep(2);
+
         loggedIn = true;
         loggedOut = false;
         modelState = WebsiteSystemStates.LOGGED_IN;
@@ -107,8 +110,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
     public @Action void logOut(){
-        rpo.logout();
         sut.loggingOut();
+
+        rpo.logout();
+        sleep(2);
 
         loggedOut = true;
         loggedIn = false;
@@ -121,8 +126,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
     public @Action void search(){
-        rpo.searchOne();
         sut.searchingProducts();
+
+        rpo.searchOne();
+        sleep(2);
 
         inProductSearch = true;
         modelState = WebsiteSystemStates.IN_SEARCH;
@@ -135,8 +142,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_SEARCH);
     }
     public @Action void viewProduct(){
-        rpo.clickFirstImage();
         sut.viewingProduct();
+
+        rpo.clickFirstImage();
+        sleep(3);
 
         inProductPage = true;
         inProductSearch = false;
@@ -150,11 +159,11 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
     public @Action void addProduct(){
-        rpo.addToCart();
         sut.addingProductToCart();
 
-        inProductPage = true;
-        inProductSearch = false;
+        rpo.searchAndAddMultiple(2);
+        sleep(2);
+
         modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
 
         assertTrue("The model's viewing product state doesn't match the SUT's state.", sut.isInProductPage());
@@ -165,11 +174,12 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
     public @Action void viewCart(){
-        rpo.goToCart();
         sut.viewingCart();
 
+        rpo.goToCart();
+        sleep(2);
+
         inProductPage = false;
-        inProductSearch = false;
         inCart = true;
         modelState = WebsiteSystemStates.IN_CART;
 
@@ -181,8 +191,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void removeProduct(){
-        rpo.removeFirstProductInCart();
         sut.removingProductFromCart();
+
+        rpo.removeFirstProductInCart();
+        sleep(2);
 
         modelState = WebsiteSystemStates.IN_CART;
 
@@ -194,8 +206,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void checkout(){
-        rpo.checkout();
         sut.checkingOut();
+
+        rpo.checkout();
+        sleep(2);
 
         inCart = false;
         inCheckout = true;
@@ -215,7 +229,8 @@ public class WebsiteSystemModelTest implements FsmModel {
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(250);
+        tester.generate(5);
+        browser.quit();
         tester.printCoverage();
     }
 }
