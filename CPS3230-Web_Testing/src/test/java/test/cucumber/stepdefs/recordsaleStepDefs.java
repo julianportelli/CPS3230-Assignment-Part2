@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.recordsalePageObject;
 
+import static com.uom.cps3230.website.slp.sleep;
 import static org.junit.Assert.*;
 
 public class recordsaleStepDefs {
@@ -21,6 +22,7 @@ public class recordsaleStepDefs {
         System.setProperty("webdriver.chrome.driver", "C:/Users/Julian Portelli/Downloads/chromedriver_win32/chromedriver.exe");
         browser = new ChromeDriver();
         rpo = new recordsalePageObject(browser);
+        browser.manage().window().maximize();
     }
 
     @After
@@ -136,9 +138,5 @@ public class recordsaleStepDefs {
         sleep(2);
     }
 
-    public void sleep(int seconds) {
-        try {
-            Thread.sleep(seconds*1000);
-        } catch (Exception e) {}
-    }
+
 }

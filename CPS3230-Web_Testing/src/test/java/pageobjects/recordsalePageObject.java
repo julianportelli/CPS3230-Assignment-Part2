@@ -1,16 +1,12 @@
 package pageobjects;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
+import static com.uom.cps3230.website.slp.sleep;
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertNull;
 
@@ -31,6 +27,7 @@ public class recordsalePageObject {
 
     public void get() {
         browser.get("https://recordsale.de/en");
+        browser.manage().window().maximize();
     }
 
     public void login(String email, String password){
@@ -118,12 +115,6 @@ public class recordsalePageObject {
             addToCart();
             sleep(2);
         }
-    }
-
-    public void sleep(int seconds) {
-        try {
-            Thread.sleep(seconds*1000);
-        } catch (Exception e) {}
     }
 
     public void logout(){

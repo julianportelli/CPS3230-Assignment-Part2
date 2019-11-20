@@ -1,30 +1,17 @@
 package com.uom.cps3230.website;
+import static com.uom.cps3230.website.slp.sleep;
 import static org.junit.Assert.*;
 
 import com.uom.cps3230.website.enums.WebsiteSystemStates;
 import com.uom.cps3239.website.WebsiteSystem;
 
-import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import junit.framework.Assert;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import nz.ac.waikato.modeljunit.Action;
 import nz.ac.waikato.modeljunit.FsmModel;
-import nz.ac.waikato.modeljunit.GraphListener;
-import nz.ac.waikato.modeljunit.GreedyTester;
-import nz.ac.waikato.modeljunit.StopOnFailureListener;
-import nz.ac.waikato.modeljunit.Tester;
-import nz.ac.waikato.modeljunit.coverage.ActionCoverage;
-import nz.ac.waikato.modeljunit.coverage.StateCoverage;
-import nz.ac.waikato.modeljunit.coverage.TransitionPairCoverage;
-import pageobjects.recordsalePageObject;
 
-import java.util.Random;
 
 public class WebsiteSystemModelTest implements FsmModel {
     /*
@@ -32,71 +19,46 @@ public class WebsiteSystemModelTest implements FsmModel {
      remove items from cart, view cart and checkout.
     */
 
-    WebDriver browser;
-    recordsalePageObject rpo;
-
+    public WebDriver driver;
     private WebsiteSystemStates modelState;
     private WebsiteSystem sut; //System under test
-    private boolean inSite, loggedIn, loggedOut,
+    private boolean loggedIn, loggedOut,
             inCart, inProductSearch, inProductPage, inCheckout;
 
     public WebsiteSystemStates getState() {
         return modelState;
     }
 
-    public WebsiteSystemModelTest(){
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Julian Portelli/Downloads/chromedriver_win32/chromedriver.exe");
-        browser = new ChromeDriver();
-        rpo = new recordsalePageObject(browser);
-    }
-
-//    @After
-//    public void quitBrowser() {
-//        browser.quit();
-//    }
-
-    public void sleep(int seconds) {
-        try {
-            Thread.sleep(seconds*1000);
-        } catch (Exception e) {}
+    public WebsiteSystemModelTest(WebDriver driver){
+        this.driver = driver;
+        sut = new WebsiteSystem(driver);
     }
 
     public void reset(final boolean b) {
-        modelState = WebsiteSystemStates.IN_SITE;
-        inSite = true;
+        modelState = WebsiteSystemStates.LOGGED_OUT;
         loggedIn = false;
         loggedOut = true;
         inCart = false;
         inProductSearch= false;
         inProductPage= false;
         inCheckout= false;
+        try {
+            sut.loggingOut();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         if (b) {
-            sut = new WebsiteSystem();
+            sut = new WebsiteSystem(driver);
         }
-    }
-
-    public boolean visitSiteGuard(){
-        return getState().equals(WebsiteSystemStates.IN_SITE);
-    }
-    public @Action void visitSite(){
-        sut.visitingSite();
-        sleep(2);
-        rpo.get();
-
-        inSite = true;
-        modelState = WebsiteSystemStates.LOGGED_OUT;
-
-        assertEquals("The model's visit site in state doesn't match the SUT's state.", inSite, sut.isInSite());
     }
 
     public boolean logInGuard(){
         return getState().equals(WebsiteSystemStates.LOGGED_OUT);
     }
-    public @Action void logIn(){
+    public @Action void logIn() throws Exception {
         sut.loggingIn();
 
-        rpo.login(recordsalePageObject.email, recordsalePageObject.goodPassword);
         sleep(2);
 
         loggedIn = true;
@@ -109,10 +71,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean logOutGuard(){
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
-    public @Action void logOut(){
+    public @Action void logOut() throws InterruptedException {
         sut.loggingOut();
 
-        rpo.logout();
         sleep(2);
 
         loggedOut = true;
@@ -125,10 +86,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean searchGuard(){
         return getState().equals(WebsiteSystemStates.LOGGED_IN);
     }
-    public @Action void search(){
+    public @Action void search() throws InterruptedException {
         sut.searchingProducts();
 
-        rpo.searchOne();
         sleep(2);
 
         inProductSearch = true;
@@ -141,10 +101,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean viewProductGuard(){
         return getState().equals(WebsiteSystemStates.IN_SEARCH);
     }
-    public @Action void viewProduct(){
+    public @Action void viewProduct() throws InterruptedException {
         sut.viewingProduct();
 
-        rpo.clickFirstImage();
         sleep(3);
 
         inProductPage = true;
@@ -158,10 +117,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean addProductGuard(){
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
-    public @Action void addProduct(){
+    public @Action void addProduct() throws InterruptedException {
         sut.addingProductToCart();
 
-        rpo.searchAndAddMultiple(2);
         sleep(2);
 
         modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
@@ -173,10 +131,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean viewCartGuard(){
         return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
     }
-    public @Action void viewCart(){
+    public @Action void viewCart() throws InterruptedException {
         sut.viewingCart();
 
-        rpo.goToCart();
         sleep(2);
 
         inProductPage = false;
@@ -190,10 +147,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean removeProductGuard(){
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
-    public @Action void removeProduct(){
+    public @Action void removeProduct() throws InterruptedException {
         sut.removingProductFromCart();
 
-        rpo.removeFirstProductInCart();
         sleep(2);
 
         modelState = WebsiteSystemStates.IN_CART;
@@ -205,10 +161,9 @@ public class WebsiteSystemModelTest implements FsmModel {
     public boolean checkoutGuard(){
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
-    public @Action void checkout(){
+    public @Action void checkout() throws InterruptedException {
         sut.checkingOut();
 
-        rpo.checkout();
         sleep(2);
 
         inCart = false;
@@ -219,18 +174,4 @@ public class WebsiteSystemModelTest implements FsmModel {
         assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
 
-    @Test
-    public void WebsiteSystemModelRunner(){
-        final Tester tester = new GreedyTester(new WebsiteSystemModelTest());
-        tester.setRandom(new Random());
-        final GraphListener graphListener = tester.buildGraph();
-        tester.addListener(new StopOnFailureListener());
-        tester.addListener("verbose");
-        tester.addCoverageMetric(new TransitionPairCoverage());
-        tester.addCoverageMetric(new StateCoverage());
-        tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(5);
-        browser.quit();
-        tester.printCoverage();
-    }
 }
