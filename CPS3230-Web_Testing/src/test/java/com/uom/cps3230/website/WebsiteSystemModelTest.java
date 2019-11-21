@@ -32,7 +32,6 @@ public class WebsiteSystemModelTest implements FsmModel {
     public WebsiteSystemModelTest(WebDriver driver){
         this.driver = driver;
         sut = new WebsiteSystem(driver);
-        driver.manage().window().maximize();
     }
 
     public void reset(final boolean b) {
@@ -40,14 +39,10 @@ public class WebsiteSystemModelTest implements FsmModel {
         loggedIn = false;
         loggedOut = true;
         inCart = false;
-        inProductSearch= false;
-        inProductPage= false;
-        inCheckout= false;
-        try {
-            sut.loggingOut();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        inProductSearch = false;
+        inProductPage = false;
+        inCheckout = false;
+        sut.loggingOut();
 
         if (b) {
             sut = new WebsiteSystem(driver);
@@ -62,10 +57,14 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(2);
 
+        inProductSearch = false;
+        inCheckout = false;
+        inProductPage = false;
+        inCart = false;
         loggedIn = true;
         loggedOut = false;
-        modelState = WebsiteSystemStates.LOGGED_IN;
 
+        modelState = WebsiteSystemStates.LOGGED_IN;
         assertEquals("The model's logged in state doesn't match the SUT's state.", loggedIn, sut.isLoggedIn());
     }
 
@@ -77,10 +76,14 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(2);
 
+        inProductSearch = false;
+        inCheckout = false;
+        inProductPage = false;
+        inCart = false;
         loggedOut = true;
         loggedIn = false;
-        modelState = WebsiteSystemStates.LOGGED_OUT;
 
+        modelState = WebsiteSystemStates.LOGGED_OUT;
         assertEquals("The model's logged out state doesn't match the SUT's state.", loggedOut, sut.isLoggedOut());
     }
 
@@ -92,9 +95,14 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(2);
 
+        inProductSearch = false;
+        inCheckout = false;
+        inCart = false;
         inProductSearch = true;
-        modelState = WebsiteSystemStates.IN_SEARCH;
+        loggedIn = true;
+        loggedOut = false;
 
+        modelState = WebsiteSystemStates.IN_SEARCH;
         assertTrue("The model's searching state doesn't match the SUT's state.", sut.isInProductSearch());
         assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
@@ -105,12 +113,16 @@ public class WebsiteSystemModelTest implements FsmModel {
     public @Action void viewProduct() throws InterruptedException {
         sut.viewingProduct();
 
-        sleep(3);
+        sleep(1);
 
+        inCheckout = false;
+        inCart = false;
+        loggedOut = false;
+        loggedIn = true;
         inProductPage = true;
         inProductSearch = false;
-        modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
 
+        modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
         assertTrue("The model's viewing product state doesn't match the SUT's state.", sut.isInProductPage());
         assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
@@ -123,57 +135,78 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(2);
 
+        inCheckout = false;
+        inCart = false;
+        loggedOut = false;
+        loggedIn = true;
+        inProductPage = true;
+        inProductSearch = false;
+
         modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
 
         assertTrue("The model's viewing product state doesn't match the SUT's state.", sut.isInProductPage());
         assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
 
-    public boolean viewCartGuard(){
-        return getState().equals(WebsiteSystemStates.IN_PRODUCT_PAGE);
-    }
+
     public @Action void viewCart() throws InterruptedException {
-        sut.viewingCart();
+        if(sut.viewingCart()){
 
-        sleep(2);
+            sleep(1);
 
-        inProductPage = false;
-        inCart = true;
-        modelState = WebsiteSystemStates.IN_CART;
+            loggedOut = false;
+            loggedIn = true;
+            inProductSearch = false;
+            inCheckout = false;
+            inProductPage = false;
+            inCart = true;
 
-        assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+            modelState = WebsiteSystemStates.IN_CART;
+            assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
+            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+        }
+
     }
 
     public boolean removeProductGuard(){
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void removeProduct() throws InterruptedException {
-        sut.removingProductFromCart();
+        if(sut.removingProductFromCart()){
+            sleep(1);
 
-        sleep(2);
+            loggedOut = false;
+            loggedIn = true;
+            inProductSearch = false;
+            inCheckout = false;
+            inProductPage = false;
+            inCart = true;
 
-        modelState = WebsiteSystemStates.IN_CART;
-
-        assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+            modelState = WebsiteSystemStates.IN_CART;
+            assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
+            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+        }
     }
 
     public boolean checkoutGuard(){
         return getState().equals(WebsiteSystemStates.IN_CART);
     }
     public @Action void checkout() throws InterruptedException {
-        sut.checkingOut();
+        if(sut.checkingOut()){
+            sleep(1);
 
-        sleep(2);
+            loggedOut = false;
+            loggedIn = true;
+            inCheckout = false;
+            inProductSearch = false;
+            inProductPage = false;
+            inCart = false;
+            inCheckout = true;
 
-        inCart = false;
-        inCheckout = true;
-        modelState = WebsiteSystemStates.IN_CHECKOUT;
-
-        assertTrue("The model's checkout product state doesn't match the SUT's state.", sut.isInCheckout());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
-        sut.loggingOut();
+            modelState = WebsiteSystemStates.IN_CHECKOUT;
+            assertTrue("The model's checkout state doesn't match the SUT's state.", sut.isInCheckout());
+            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+        }
     }
 
 }

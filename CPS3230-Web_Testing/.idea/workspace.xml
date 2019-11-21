@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc6dc3-a3ec-48a2-ad1f-3580e0adb92d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" afterDir="false" />
     </list>
@@ -44,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WebsiteSystemTesting">
+  <component name="RunManager" selected="JUnit.WebsiteSystemTesting.WebsiteSystemModelRunner">
     <configuration name="Feature: onlinestore" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="4" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
@@ -53,25 +54,6 @@
       <module name="CPS3230-Web_Testing" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter" />
       <option name="SUGGESTED_NAME" value="Feature: onlinestore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Removing a product from cart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="4" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
-      <option name="GLUE" value="test.cucumber.stepdefs" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="CPS3230-Web_Testing" />
-      <option name="NAME_FILTER" value="^Removing a product from cart$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter --name &quot;^Removing a product from cart$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Removing a product from cart" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cucumber.api.cli.*" />
@@ -128,13 +110,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebsiteSystemTesting.WebsiteSystemModelRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CPS3230-Web_Testing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uom.cps3230.website.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.uom.cps3230.website" />
+      <option name="MAIN_CLASS_NAME" value="com.uom.cps3230.website.WebsiteSystemTesting" />
+      <option name="METHOD_NAME" value="WebsiteSystemModelRunner" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebsiteSystemTesting.WebsiteSystemModelRunner" />
         <item itemvalue="JUnit.WebsiteSystemTesting" />
         <item itemvalue="JUnit.WebsiteSystemModelTest.WebsiteSystemModelRunner" />
         <item itemvalue="JUnit.WebsiteSystemModelTest" />
         <item itemvalue="Cucumber java.Feature: onlinestore" />
-        <item itemvalue="Cucumber java.Scenario: Removing a product from cart" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +155,7 @@
       <workItem from="1573899351999" duration="11136000" />
       <workItem from="1573918593863" duration="20746000" />
       <workItem from="1574257715032" duration="11217000" />
+      <workItem from="1574334763992" duration="7804000" />
     </task>
     <servers />
   </component>
