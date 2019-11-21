@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
-
 public class WebsiteSystem {
 
     WebDriver browser;
@@ -19,10 +17,11 @@ public class WebsiteSystem {
     private boolean inProductPage = false;
     private boolean inCheckout = false;
 
-    public WebsiteSystem(WebDriver driver){
+    public WebsiteSystem(WebDriver driver)  {
         this.browser = driver;
         browser.get("https://recordsale.de/en");
-        browser.manage().window().maximize();
+        sleep(2); //for demo purposes
+
     }
 
     public boolean isLoggedIn() {
@@ -132,5 +131,11 @@ public class WebsiteSystem {
             return Integer.parseInt(browser.findElement(By.className("cart-icon")).getAttribute("data-content"));
         }
         return 0;
+    }
+
+    public static void sleep(int seconds) {
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (Exception e) {}
     }
 }

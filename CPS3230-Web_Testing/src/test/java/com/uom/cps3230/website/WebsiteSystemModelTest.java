@@ -32,6 +32,7 @@ public class WebsiteSystemModelTest implements FsmModel {
     public WebsiteSystemModelTest(WebDriver driver){
         this.driver = driver;
         sut = new WebsiteSystem(driver);
+        driver.manage().window().maximize();
     }
 
     public void reset(final boolean b) {
@@ -172,6 +173,7 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         assertTrue("The model's checkout product state doesn't match the SUT's state.", sut.isInCheckout());
         assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+        sut.loggingOut();
     }
 
 }

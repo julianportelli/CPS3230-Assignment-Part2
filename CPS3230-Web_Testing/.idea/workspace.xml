@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc6dc3-a3ec-48a2-ad1f-3580e0adb92d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemTesting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/slp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageobjects/recordsalePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test/system/recordsale/RecordsaleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/system/recordsale/RecordsaleTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageobjects/recordsalePageObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/cucumber/stepdefs/recordsaleStepDefs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/system/recordsale/RecordsaleTests.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +156,7 @@
       <workItem from="1573036878488" duration="2281000" />
       <workItem from="1573899351999" duration="11136000" />
       <workItem from="1573918593863" duration="20746000" />
-      <workItem from="1574257715032" duration="10794000" />
+      <workItem from="1574257715032" duration="11217000" />
     </task>
     <servers />
   </component>
