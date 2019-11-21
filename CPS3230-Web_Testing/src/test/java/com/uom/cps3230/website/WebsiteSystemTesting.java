@@ -38,7 +38,7 @@ public class WebsiteSystemTesting{
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(250);
+        tester.generate(750);
         tester.printCoverage();
     }
 }
