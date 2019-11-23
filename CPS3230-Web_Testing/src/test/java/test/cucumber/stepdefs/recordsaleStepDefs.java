@@ -8,7 +8,6 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.recordsalePageObject;
-
 import static com.uom.cps3230.website.slp.sleep;
 import static org.junit.Assert.*;
 
@@ -48,7 +47,6 @@ public class recordsaleStepDefs {
 
     @When("I log in using invalid credentials")
     public void i_log_in_using_invalid_credentials() {
-        // Write code here that turns the phrase above into concrete actions
         rpo.login(recordsalePageObject.email, recordsalePageObject.badPassword);
     }
 
@@ -137,6 +135,5 @@ public class recordsaleStepDefs {
         rpo.removeFirstProductInCart();
         sleep(2);
     }
-
 
 }

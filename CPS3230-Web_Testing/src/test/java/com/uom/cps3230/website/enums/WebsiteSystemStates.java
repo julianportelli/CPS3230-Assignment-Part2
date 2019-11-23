@@ -1,7 +1,6 @@
 package com.uom.cps3230.website.enums;
 
 public enum WebsiteSystemStates {
-    IN_SITE,  //Website accessed
     LOGGED_IN, //Logged in successfully
     LOGGED_OUT, //Logged out successfully
     IN_CART, //In cart page
