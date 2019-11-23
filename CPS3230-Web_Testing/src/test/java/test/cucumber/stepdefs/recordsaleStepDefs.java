@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 
 public class recordsaleStepDefs {
 
-    WebDriver browser;
-    recordsalePageObject rpo;
+    private WebDriver browser;
+    private recordsalePageObject rpo;
 
     @Before
     public void setup() {

@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class WebsiteSystemTesting{
-    public WebDriver driver;
+    private WebDriver driver;
 
     @Before
     public void setup(){
@@ -38,7 +38,7 @@ public class WebsiteSystemTesting{
         tester.addCoverageMetric(new TransitionPairCoverage());
         tester.addCoverageMetric(new StateCoverage());
         tester.addCoverageMetric(new ActionCoverage());
-        tester.generate(750);
+        tester.generate(250);
         tester.printCoverage();
     }
 }

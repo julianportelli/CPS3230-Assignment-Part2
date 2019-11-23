@@ -19,7 +19,7 @@ public class WebsiteSystemModelTest implements FsmModel {
      remove items from cart, view cart and checkout.
     */
 
-    public WebDriver driver;
+    private WebDriver driver;
     private WebsiteSystemStates modelState;
     private WebsiteSystem sut; //System under test
     private boolean loggedIn, loggedOut,
@@ -29,7 +29,7 @@ public class WebsiteSystemModelTest implements FsmModel {
         return modelState;
     }
 
-    public WebsiteSystemModelTest(WebDriver driver){
+    WebsiteSystemModelTest(WebDriver driver){
         this.driver = driver;
         sut = new WebsiteSystem(driver);
     }

@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2fbc6dc3-a3ec-48a2-ad1f-3580e0adb92d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/enums/WebsiteSystemStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/enums/WebsiteSystemStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +157,7 @@
       <workItem from="1573918593863" duration="20746000" />
       <workItem from="1574257715032" duration="11217000" />
       <workItem from="1574334763992" duration="7804000" />
-      <workItem from="1574359511995" duration="14025000" />
+      <workItem from="1574359511995" duration="14782000" />
     </task>
     <servers />
   </component>
