@@ -88,23 +88,23 @@ public class WebsiteSystemModelTest implements FsmModel {
     }
 
     public boolean searchGuard(){
-        return getState().equals(WebsiteSystemStates.LOGGED_IN);
+        return (getState().equals(WebsiteSystemStates.LOGGED_IN)) || (getState().equals(WebsiteSystemStates.LOGGED_OUT));
     }
     public @Action void search() throws InterruptedException {
         sut.searchingProducts();
 
         sleep(2);
 
+//        loggedIn = true;
+//        loggedOut = false;
         inProductSearch = false;
         inCheckout = false;
         inCart = false;
         inProductSearch = true;
-        loggedIn = true;
-        loggedOut = false;
 
         modelState = WebsiteSystemStates.IN_SEARCH;
         assertTrue("The model's searching state doesn't match the SUT's state.", sut.isInProductSearch());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
 
     public boolean viewProductGuard(){
@@ -115,16 +115,16 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(1);
 
+//        loggedOut = false;
+//        loggedIn = true;
         inCheckout = false;
         inCart = false;
-        loggedOut = false;
-        loggedIn = true;
         inProductPage = true;
         inProductSearch = false;
 
         modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
         assertTrue("The model's viewing product state doesn't match the SUT's state.", sut.isInProductPage());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
 
     public boolean addProductGuard(){
@@ -135,17 +135,17 @@ public class WebsiteSystemModelTest implements FsmModel {
 
         sleep(2);
 
+//        loggedOut = false;
+//        loggedIn = true;
         inCheckout = false;
         inCart = false;
-        loggedOut = false;
-        loggedIn = true;
         inProductPage = true;
         inProductSearch = false;
 
         modelState = WebsiteSystemStates.IN_PRODUCT_PAGE;
 
         assertTrue("The model's viewing product state doesn't match the SUT's state.", sut.isInProductPage());
-        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//        assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
     }
 
 
@@ -154,8 +154,8 @@ public class WebsiteSystemModelTest implements FsmModel {
 
             sleep(1);
 
-            loggedOut = false;
-            loggedIn = true;
+//            loggedOut = false;
+//            loggedIn = true;
             inProductSearch = false;
             inCheckout = false;
             inProductPage = false;
@@ -163,7 +163,7 @@ public class WebsiteSystemModelTest implements FsmModel {
 
             modelState = WebsiteSystemStates.IN_CART;
             assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
-            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
         }
 
     }
@@ -175,8 +175,8 @@ public class WebsiteSystemModelTest implements FsmModel {
         if(sut.removingProductFromCart()){
             sleep(1);
 
-            loggedOut = false;
-            loggedIn = true;
+//            loggedOut = false;
+//            loggedIn = true;
             inProductSearch = false;
             inCheckout = false;
             inProductPage = false;
@@ -184,7 +184,7 @@ public class WebsiteSystemModelTest implements FsmModel {
 
             modelState = WebsiteSystemStates.IN_CART;
             assertTrue("The model's in cart state doesn't match the SUT's state.", sut.isInCart());
-            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
         }
     }
 
@@ -195,8 +195,8 @@ public class WebsiteSystemModelTest implements FsmModel {
         if(sut.checkingOut()){
             sleep(1);
 
-            loggedOut = false;
-            loggedIn = true;
+//            loggedOut = false;
+//            loggedIn = true;
             inCheckout = false;
             inProductSearch = false;
             inProductPage = false;
@@ -205,7 +205,7 @@ public class WebsiteSystemModelTest implements FsmModel {
 
             modelState = WebsiteSystemStates.IN_CHECKOUT;
             assertTrue("The model's checkout state doesn't match the SUT's state.", sut.isInCheckout());
-            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
+//            assertEquals("The model's logged in state doesn't match the SUT's state", loggedIn, sut.isLoggedIn());
         }
     }
 

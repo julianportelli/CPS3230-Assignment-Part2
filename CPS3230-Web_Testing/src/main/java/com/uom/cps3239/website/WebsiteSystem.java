@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Random;
 
 public class WebsiteSystem {
 
@@ -16,6 +17,15 @@ public class WebsiteSystem {
     private boolean inProductSearch = false;
     private boolean inProductPage = false;
     private boolean inCheckout = false;
+
+    private String[] keywords = {"Sabaton", "Metallica", "Iron Maiden", "Powerwolf", "AC DC", "Beatles", "Linkin Park", "RHCP",
+            "King Crimson", "Marty Robbins", "Nirvana", "Pink Floyd", "Dragonforce", "Queen", "Dire Straits", "Michael Jackson", "Rush"};
+
+    private String getRandomKeyword(){
+        Random random = new Random();
+        int randomIndex = random.nextInt(keywords.length);
+        return keywords[randomIndex];
+    }
 
     public WebsiteSystem(WebDriver browser)  {
         //sleep(1); //for demo purposes
@@ -70,9 +80,9 @@ public class WebsiteSystem {
     }
 
     public void searchingProducts() {
-        if(!inProductSearch && loggedIn){
+        if(!inProductSearch && (loggedIn || loggedOut)){
             sleep(2);
-            browser.findElement(By.className("js-search")).sendKeys("Sabaton");
+            browser.findElement(By.className("js-search")).sendKeys(getRandomKeyword());
             browser.findElement(By.className("js-search")).submit();
             inProductSearch = true;
             inProductPage = false;
@@ -82,7 +92,7 @@ public class WebsiteSystem {
     }
 
     public void viewingProduct() {
-        if(inProductSearch && !inCart && !inProductPage && !inCheckout && loggedIn){
+        if(inProductSearch && !inCart && !inProductPage && !inCheckout && (loggedIn || loggedOut)){
             sleep(2);
             browser.findElement(By.className("release-image")).click();
             inProductSearch = false;
@@ -91,7 +101,7 @@ public class WebsiteSystem {
     }
 
     public void addingProductToCart() {
-        if(inProductPage && !inCart && !inProductSearch && !inCheckout && loggedIn){
+        if(inProductPage && !inCart && !inProductSearch && !inCheckout && (loggedIn || loggedOut)){
             sleep(2);
             List<WebElement> e = browser.findElements(By.className("l-paneContent-buy"));
             if(e.size() > 0) {  browser.findElement(By.className("l-paneContent-buy")).findElement(By.className("button--fill")).submit();}
@@ -99,7 +109,7 @@ public class WebsiteSystem {
     }
 
     public boolean viewingCart() {
-        if(!inCart && loggedIn){
+        if(!inCart && (loggedIn || loggedOut)){
             sleep(2);
             browser.findElement(By.className("navbar__item--cart")).click();
             inCart = true;
@@ -109,7 +119,7 @@ public class WebsiteSystem {
     }
 
     public boolean removingProductFromCart() {
-        if(inCart && !inProductSearch && !inProductPage && !inCheckout && loggedIn){
+        if(inCart && !inProductSearch && !inProductPage && !inCheckout && (loggedIn || loggedOut)){
             if(countItemsInCart() > 0) {
                 sleep(1);
                 browser.findElement(By.className("cartItem-delete")).findElement(By.tagName("a")).click();
@@ -121,7 +131,7 @@ public class WebsiteSystem {
     }
 
     public boolean checkingOut() {
-        if(inCart && !inProductSearch && !inProductPage && !inCheckout && loggedIn){
+        if(inCart && !inProductSearch && !inProductPage && !inCheckout && (loggedIn || loggedOut)){
             sleep(2);
             if(countItemsInCart() > 0){
                 inCheckout = true;

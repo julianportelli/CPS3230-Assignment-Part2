@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbc6dc3-a3ec-48a2-ad1f-3580e0adb92d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/uom/cps3239/website/WebsiteSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/uom/cps3230/website/WebsiteSystemTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/cucumber/stepdefs/recordsaleStepDefs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/uom/cps3239/website/WebsiteSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemTesting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/uom/cps3230/website/WebsiteSystemTesting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation.docx" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,25 +32,18 @@
   </component>
   <component name="ProjectId" id="1T0j1kceYGdQectnrzyHf4JQHJp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="JUnit.WebsiteSystemTesting.WebsiteSystemModelRunner">
+  <component name="RunManager" selected="JUnit.WebsiteSystemTesting">
     <configuration name="Feature: onlinestore" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="4" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/onlinestore.feature" />
@@ -129,13 +126,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WebsiteSystemTesting.WebsiteSystemModelRunner" />
         <item itemvalue="JUnit.WebsiteSystemTesting" />
+        <item itemvalue="JUnit.WebsiteSystemTesting.WebsiteSystemModelRunner" />
         <item itemvalue="JUnit.WebsiteSystemModelTest.WebsiteSystemModelRunner" />
         <item itemvalue="JUnit.WebsiteSystemModelTest" />
         <item itemvalue="Cucumber java.Feature: onlinestore" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -158,6 +167,7 @@
       <workItem from="1574257715032" duration="11217000" />
       <workItem from="1574334763992" duration="7804000" />
       <workItem from="1574359511995" duration="14782000" />
+      <workItem from="1576333082215" duration="5778000" />
     </task>
     <servers />
   </component>
@@ -177,17 +187,43 @@
       </map>
     </option>
   </component>
+  <component name="WindowStateProjectService">
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576333085963">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576333085963" />
+    <state width="1877" height="202" key="GridCell.Tab.0.bottom" timestamp="1576342168992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576342168992" />
+    <state width="1877" height="202" key="GridCell.Tab.0.center" timestamp="1576342168992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576342168992" />
+    <state width="1877" height="202" key="GridCell.Tab.0.left" timestamp="1576342168992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576342168992" />
+    <state width="1877" height="202" key="GridCell.Tab.0.right" timestamp="1576342168992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576342168992" />
+    <state x="656" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1576333083260">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1576333083260" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Feature__onlinestore.ic" NAME="Feature: onlinestore Coverage Results" MODIFIED="1572716492439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>cucumber.api.cli.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Scenario__Removing_a_product_from_cart.ic" NAME="Scenario: Removing a product from cart Coverage Results" MODIFIED="1573040494261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cucumber.api.cli.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$WebsiteSystemModelTest_WebsiteSystemModelRunner.ic" NAME="WebsiteSystemModelTest.WebsiteSystemModelRunner Coverage Results" MODIFIED="1574071221614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$WebsiteSystemModelTest.ic" NAME="WebsiteSystemModelTest Coverage Results" MODIFIED="1574257079573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uom.cps3230.website.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$WebsiteSystemModelTest.ic" NAME="WebsiteSystemModelTest Coverage Results" MODIFIED="1574257079573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$Feature__onlinestore.ic" NAME="Feature: onlinestore Coverage Results" MODIFIED="1572716492439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>cucumber.api.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CPS3230_Web_Testing$WebsiteSystemModelTest_WebsiteSystemModelRunner.ic" NAME="WebsiteSystemModelTest.WebsiteSystemModelRunner Coverage Results" MODIFIED="1574071221614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.uom.cps3230.website.*</FILTER>
     </SUITE>
   </component>
